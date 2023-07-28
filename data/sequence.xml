@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="mob_seq" model="ir.sequence">
+
+            <field name="name">mobile seq</field>
+            <field name="code">mobileserv_seq</field>
+            <field name="prefix">SN</field>
+            <field name="padding">4</field>
+
+        </record>
+    </data>
+</odoo>

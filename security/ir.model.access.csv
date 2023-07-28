@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mobile_service_service_request,mobile_service.service_request,model_mobile_service_service_request,base.group_user,1,1,1,1
+access_mobile_service_parts_inventory,mobile_service.parts_inventory,model_mobile_service_parts_inventory,base.group_user,1,1,1,1
+access_mobile_service_config1,mobile_service.config1,model_mobile_service_config1,base.group_user,1,1,1,1
+access_mobile_service_config2,mobile_service.config2,model_mobile_service_config2,base.group_user,1,1,1,1
+access_mobile_service_config3,mobile_service.config3,model_mobile_service_config3,base.group_user,1,1,1,1
+access_mob_config4,mob.config4,model_mob_config4,base.group_user,1,1,1,1
+access_mobile_service_complaints,mobile_service.complaints,model_mobile_service_complaints,base.group_user,1,1,1,1
+access_mobile_service_partsusage,mobile_service.partsusage,model_mobile_service_partsusage,base.group_user,1,1,1,1

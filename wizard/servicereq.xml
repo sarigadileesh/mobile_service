@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="mob_report1">
+            <field name="name">report</field>
+            <field name="model">servicereq.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="startdate1"/>
+                        <field name="enddate1"/>
+                    </group>
+                    <footer>
+                        <button name="mob_pdf_report" string="pdf report" class="oe_highlight" type="object"></button>
+                        <button name="mob_excel_report" string="excel report" class="oe_highlight" type="object"></button>
+                        <button name="cancel" string="cancel" special="cancel"></button>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_mobserreq_report">
+            <field name="name">report</field>
+            <field name="res_model">servicereq.report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="mob_report1"></field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Report" id="mob_service_menu" parent="mobileservice_menu_root"/>
+        <menuitem name="Service Request Report" id="mob_servicereq" parent="mob_service_menu" action="action_mobserreq_report"/>
+
+    </data>
+</odoo>

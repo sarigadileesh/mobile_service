@@ -1,0 +1,109 @@
+<odoo>
+<!--    *Form for model menu-->
+    <record id="config_modelform" model="ir.ui.view">
+            <field name="name">config_model </field>
+            <field name="model">mobile_service.config1</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+<!--                        *To make two fields in a form come under a single vertical line-->
+                      <group>
+                            <field name="brandname"/>
+                            <field name="model1"/>
+                      </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+<!--    *Form for complaint templates menu-->
+     <record id="config_comptempform" model="ir.ui.view">
+            <field name="name">config_compltempl </field>
+            <field name="model">mobile_service.config2</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                      <group>
+                        <group>
+                            <field name="comptemp"/>
+                            <field name="compdes" />
+                        </group>
+                        <group name="right">
+                        </group>
+                      </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+<!--    *Form for complaint type menu-->
+    <record id="config_comptypeform" model="ir.ui.view">
+            <field name="name">config_comptype </field>
+            <field name="model">mobile_service.config3</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="comptype"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+<!--    *Form for terms and conditions menu-->
+    <record id="config_termsform" model="ir.ui.view">
+            <field name="name">config_terms </field>
+            <field name="model">mob.config4</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="terms1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+
+  <data>
+<!--        *Model menu action code-->
+     <record model="ir.actions.act_window" id="mobileservice3_action_window">
+            <field name="name">mobile_service</field>
+            <field name="res_model">mobile_service.config1</field>
+            <field name="view_mode">form</field>
+    </record>
+
+<!--        *Complaint templates menu action code-->
+    <record model="ir.actions.act_window" id="mobileservice4_action_window">
+            <field name="name">mobile_complaint</field>
+            <field name="res_model">mobile_service.config2</field>
+            <field name="view_mode">form</field>
+    </record>
+
+<!--       *Complaint type menu action code-->
+    <record model="ir.actions.act_window" id="mobileservice5_action_window">
+            <field name="name">mobile_complaint_type</field>
+            <field name="res_model">mobile_service.config3</field>
+            <field name="view_mode">form</field>
+    </record>
+
+<!--    *Terms and conditions menu action code-->
+    <record model="ir.actions.act_window" id="mobileservice6_action_window">
+            <field name="name">mobile_terms</field>
+            <field name="res_model">mob.config4</field>
+            <field name="view_mode">form</field>
+    </record>
+
+
+      <menuitem name="Configuration" id="mobile_service_config" parent="mobileservice_menu_root"/>
+      <menuitem name="Models" id="mobile_service_models" parent="mobile_service_config" action="mobileservice3_action_window"/>
+      <menuitem name="Complaint Templates" id="mobile_service_complaint_templates" parent="mobile_service_config" action="mobileservice4_action_window"/>
+      <menuitem name="Complaint Type" id="mobile_service_type" parent="mobile_service_config" action="mobileservice5_action_window"/>
+      <menuitem name="Terms and Conditions" id="mobile_service_terms" parent="mobile_service_config" action="mobileservice6_action_window"/>
+  </data>
+</odoo>

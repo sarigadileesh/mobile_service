@@ -1,0 +1,13 @@
+<odoo>
+     <data>
+     <record model="ir.actions.act_window" id="mobileservice2_action_window">
+            <field name="name">mobile_service</field>
+            <field name="res_model">mobile_service.parts_inventory</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <menuitem name="Parts Inventory" id="mobile_service_parts_inventory" parent="mobileservice_menu_root" action="mobileservice2_action_window"/>
+
+  </data>
+</odoo>

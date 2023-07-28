@@ -1,0 +1,70 @@
+<odoo>
+
+    <record id="paper_rep" model="report.paperformat">
+        <field name="name">paperformat.reception.report</field>
+        <field name="default" eval="True"></field>
+        <field name="format">A4</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_right">5</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">5</field>
+        <field name="header_line" eval="False"></field>
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <report
+            id="mob_pdf_report"
+            model="mobileserv_servreq.report"
+            string="Service request Report"
+            report_type="qweb-html"
+            name="mobile_service.doc_rep"
+            paperformat="paper_rep"
+            menu="False"
+    />
+    <template id="mobile_service.doc_rep">
+        <t t-call="web.html_container">
+            <div id="divdata" class="header">
+                <h6 class="text-center">Service Request Report</h6>
+                <span style="font-size: 14px;"><strong>From</strong>: <t t-esc="start_date"/> <strong>To</strong>: <t t-esc="end_date"/></span>
+                <div class="article">
+                    <table border="1">
+                        <thead>
+                            <th class="text-center" style="width:10%;font-size:15px">Customer Name</th>
+                            <th class="text-center" style="width:10%;font-size:15px">Contact No.</th>
+                            <th class="text-center" style="width:10%;font-size:15px">Email</th>
+                            <th class="text-center" style="width:10%;font-size:15px">Mobile Brand</th>
+                            <th class="text-center" style="width:10%;font-size:15px">Technician Name</th>
+                        </thead>
+                        <tbody>
+                             <t t-foreach="data" t-as="dc">
+                                <tr>
+                                <td calss="text-center">
+                                    <span style="font-size:14px" t-esc="dc['name']"/>
+                                </td>
+                                    <td calss="text-center">
+                                    <span style="font-size:14px" t-esc="dc['num']"/>
+                                </td>
+                                    <td calss="text-center">
+                                    <span style="font-size:14px" t-esc="dc['email']"/>
+                                </td>
+                                    <td calss="text-center">
+                                    <span style="font-size:14px" t-esc="dc['brname'] + ' ' + dc['model']"/>
+                                </td>
+                                    <td calss="text-center">
+                                    <span style="font-size:14px" t-esc="dc['tech.display_name']"/>
+                                </td>
+                                </tr>
+                             </t>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>

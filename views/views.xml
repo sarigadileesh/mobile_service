@@ -1,0 +1,122 @@
+<odoo>
+  <record id="servicereqtree" model="ir.ui.view">
+            <field name="name">servicerequest tree</field>
+            <field name="model">mobile_service.service_request</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                    <tree>
+                        <field name="mob_seq"/>
+                        <field name="name"/>
+                        <field name="num"/>
+                        <field name="email"/>
+                        <field name="address"/>
+                        <field name="brname"/>
+                        <field name="model"/>
+                        <field name="date1"/>
+                        <field name="date2"/>
+                        <field name="tech"/>
+                    </tree>
+            </field>
+    </record>
+
+
+    <record id="servicereqform" model="ir.ui.view">
+            <field name="name">servicerequest form</field>
+            <field name="model">mobile_service.service_request</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form>
+                        <header>
+                        <button name="action_assign" type="object" string="Assign to technician" class="oe_highlight"/>
+                        <button name="action_print" type="object"  string="Print ticket" class="oe_highlight" />
+                        <field name="sfield" widget="statusbar" statusbar_visible="Draft,Returned,Not solved"/>
+                      </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="mob_seq"/></h1>
+                        </div>
+                        <div>
+                            <field name="tick1"/>
+                            <label for="tick1"/>
+                            <field name="tick2"/>
+                            <label for="tick2"/>
+                        </div>
+                      <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="num"/>
+                            <field name="email"/>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                              <label for="brname" string="Mobile Brand"/>
+                                <div class="o_row">
+                                    <field name="brname" placeholder="Brand name" class="o_mobilebrand_format" style="width: 30%"/>
+                                    <field name="model" placeholder="Model name" class="o_mobilebrand_format" style="width: 33%"/>
+                                </div>
+                           <field name="date1"/>
+                           <field name="date2"/>
+                            <field name="tech"/>
+                        </group>
+                      </group>
+                     <notebook>
+                          <page string = "Description">
+                            <group>
+                              <group>
+                                  <field name="imei"/>
+                              </group>
+                              <group>
+                                  <field name="notes" placeholder="Notes used internally(eg.device password)"/>
+                              </group>
+                            </group>
+                          </page>
+                          <page string = "Complaints">
+                              <field name="complaint_ids">
+<!--                                <tree editable="bottom" modifiers="{}">-->
+<!--                                  <field name="category123" modifiers="{'required':true}"/>-->
+<!--                                  <field name="desp123" modifiers="{}"/>-->
+<!--                                </tree>-->
+                                  <tree>
+                                       <field name="category123"/>
+                                       <field name="desp123"/>
+                                  </tree>
+                                  <form>
+                                      <group>
+                                          <field name="category123"/>
+                                         <field name="desp123"/>
+                                      </group>
+                                  </form>
+                              </field>
+                          </page>
+                          <page string = "Parts Usage">
+                              <field name="partsusage_ids">
+                                <tree editable="bottom" modifiers="{}">
+                                  <field name="prod" modifiers="{'required':true}"/>
+                                  <field name="usedquan" modifiers="{}"/>
+                                   <field name="unit" modifiers="{}"/>
+                                   <field name="unprice" modifiers="{}"/>
+                                   <field name="stock" modifiers="{}"/>
+                                   <field name="invoicedq" modifiers="{}"/>
+                                   <field name="price" modifiers="{}"/>
+                                </tree>
+                              </field>
+                          </page>
+                      </notebook>
+                   </sheet>
+                </form>
+            </field>
+    </record>
+
+ <data>
+     <record model="ir.actions.act_window" id="mobileservice_action_window">
+            <field name="name">mobile_service</field>
+            <field name="res_model">mobile_service.service_request</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+      <menuitem name="Mobile Service" id="mobileservice_menu_root"/>
+      <menuitem name="Service Request" id="mobile_service_service_request" parent="mobileservice_menu_root" action="mobileservice_action_window"/>
+
+  </data>
+</odoo>
